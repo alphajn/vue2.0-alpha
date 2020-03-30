@@ -1,0 +1,58 @@
+// flex布局 start
+[class*=flex-row],
+[class*=flex-col] {
+    display: flex;
+}
+
+.flex {
+    // align-items 布局
+    @each $key in flex-start, flex-end, center, baseline, stretch {
+        // 交叉轴对齐方式单行文本
+        &-items-#{$key} {
+            align-items: #{$key};
+        }
+
+        // 单个属性对齐方式
+        &-self-#{$key} {
+            align-self: #{$key};
+        }
+    }
+
+    @each $key in flex-start, flex-end, center, space-between, space-around {
+        &-row-#{$key} {
+            flex-flow: row nowrap;
+            justify-content: #{$key};
+        }
+
+        &-col-#{$key} {
+            flex-flow: column nowrap;
+            justify-content: #{$key};
+        }
+
+        // 多根交叉轴的对齐方式，一根轴线不起作用
+        &-content-#{$key} {
+            align-content: #{$key};
+        }
+    }
+
+    @each $key in nowrap, wrap, wrap-reverse {
+        &-wrap-#{$key} {
+            flex-wrap: #{$key};
+        }
+    }
+}
+//  flex 布局 end
+
+// vertical align
+@each $key in top, middle, bottom {
+    .vertical-align-#{$key} {
+        vertical-align: #{$key};
+    }
+}
+
+// text align
+@each $key in left, center, right {
+    .text-align-#{$key} {
+        text-align: #{$key};
+    }
+}

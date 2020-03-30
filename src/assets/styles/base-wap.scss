@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* reset */
+* {-webkit-tap-highlight-color: transparent;margin:0;padding:0;}
+a, img {
+    -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
+    touch-callout: none;
+}
+html, body { min-height:100%; }
+body {
+    font: 12px/1 'Microsoft YaHei', Arial, sans-serif;
+    word-wrap: break-word;
+    word-break: break-all;
+    -webkit-user-select: none;
+    user-select: none;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1;
+    -webkit-overflow-scrolling: touch;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: grayscale;
+}
+img{border:0;}
+ul,ol{list-style:none;}
+input,textarea,select,button{outline:none;background:none;border:none;-webkit-appearance: none;appearance:none; -moz-appearance:none;}
+textarea{resize:none;}
+h1,h2,h3,h4,h5,h6 {font-weight:normal;}
+a{text-decoration:none;outline:none;}
+i{font-style: normal;}
+
+/**清除浮动*/
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility: hidden;}
+.clearfix{*zoom:1}
