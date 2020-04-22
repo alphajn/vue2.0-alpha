@@ -237,11 +237,12 @@ exports.proxy = {
 
 const message = [
     '',
-    chalk.green('  Node.js Proxy config (config/proxy.js):'),
-    Object.keys(this.proxy).map((uri) => `    - ${chalk.red(uri)}: ${chalk.cyan(this.proxy[uri].target)}`).join('\n'),
-    chalk.green('  Environmental variable:'),
-    `    - ${chalk.red('NODE_ENV')}:    ${chalk.cyan(NODE_ENV)}`,
-    `    - ${chalk.red('VUE_APP_ENV')}: ${chalk.cyan(VUE_APP_ENV)}`,
+    `${chalk.bgMagenta(chalk.white.bold(' I '))}  Node.js Proxy config ${chalk.green.bold('config/proxy.js:')}`,
+    Object.keys(this.proxy).map((uri) => `     - ${chalk.magenta(uri)}: ${chalk.cyan(this.proxy[uri].target)}`).join('\n'),
+    '',
+    `${chalk.bgMagenta(chalk.white.bold(' II '))} Environmental variable:`,
+    `     - ${chalk.magenta('NODE_ENV')}:    ${chalk.cyan(NODE_ENV)}`,
+    `     - ${chalk.magenta('VUE_APP_ENV')}: ${chalk.cyan(VUE_APP_ENV)}`,
 ].join('\n');
 
 // 打印信息
