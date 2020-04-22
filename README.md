@@ -34,7 +34,6 @@ yarn build --target lib --name <name> <entry>  单独构建包
 ``` bash
 yarn global add serve
 # -s 参数的意思是将其架设在 Single-Page Application 模式下
-# 这个模式会处理即将提到的路由问题
 serve -s dist
 
 ```
@@ -105,8 +104,8 @@ module.exports = {
     },
 
     rules: {
-        'no-console': process.env.NODE_ENV === 'production' ? 'off' : 1,
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'no-console': process.env.NODE_ENV === 'production' ? 0 : 1,
+        'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
 
         // 4个空格缩进 强制switch的case字句缩进级别
         "indent": [2, 4, { SwitchCase: 1 }],
@@ -143,11 +142,13 @@ module.exports = {
 
 ### styleLint
 
-项目根目录添加`.stylelintrc.js`配置文件，添加忽略`stylelint`检测的文件`.stylelintignore`。 [文档地址](http://stylelint.cn/user-guide/rules/)
+项目根目录添加`.stylelintrc.json`配置文件，添加忽略`stylelint`检测的文件`.stylelintignore`。 [文档地址](http://stylelint.cn/user-guide/rules/)
+
+深度选择器 由于使用了dart-sass 需要使用由原来的 /deep/ 改为 ::v-deep 实现
 
 ``` js
 // 安装node包
-yarn add -D stylelint-config-standard stylelint-scss
+yarn add -D @ascendancyy/vue-cli-plugin-stylelint stylelint-config-standard stylelint-scss
 
 修复文件中的错误
 yarn stylelint --fix
@@ -161,18 +162,55 @@ yarn stylelint --fix
 /* stylelint-disable-next-line */
 指定规则禁用，禁用命令后跟规则名称
 /* stylelint-disable selector-no-id */ 或  /* stylelint-disable-line selector-no-id */
+
+常用配置
+{
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "no-empty-source": true,
+    "indentation": 4,
+    "max-nesting-depth": 3,
+    "selector-pseudo-element-no-unknown": [true, {
+      "ignorePseudoElements": ["v-deep"]
+    }],
+    "selector-class-pattern": ["^([a-z]+(-[a-z0-9]+)*|el-(.+))$", {
+      "message": "Please name CSS classes like this: '.my-class-name'",
+      "severity": "error"
+    }],
+    "selector-id-pattern": ["^([a-z]+(-[a-z0-9]+)*|el-(.+))$", {
+      "message": "Please name CSS ID like this: '#my-id-name'",
+      "severity": "warning"
+    }]
+  }
+}
 ```
 
 ### gitHooks
 
-``` json
+``` js
+// 安装node包
+yarn add -D lint-staged validate-commit-msg
+
+git commit --no-verify // 绕过检查
+
 "gitHooks": {
-  "pre-commit": "lint-staged"
+  "pre-commit": "lint-staged",
+  "commit-msg": "validate-commit-msg"
 },
 "lint-staged": {
-  "*.{js,vue}": [
-    "vue-cli-service lint",
+  "*.{js,vue,scss}": [
+    "yarn lint",
     "git add"
   ]
+},
+"config": {
+  "validate-commit-msg": {
+    "types": [ "feat", "fix", "docs", "style", "refactor", "test", "perf", "revert", "release", "chore" ]
+  }
 }
 ```

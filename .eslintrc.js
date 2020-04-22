@@ -16,8 +16,8 @@ module.exports = {
     },
 
     rules: {
-        'no-console': process.env.NODE_ENV === 'production' ? 'off' : 1,
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'no-console': process.env.NODE_ENV === 'production' ? 0 : 1,
+        'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
 
         // 4个空格缩进 强制switch的case字句缩进级别
         "indent": [2, 4, { SwitchCase: 1 }],

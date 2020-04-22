@@ -1,4 +1,5 @@
 // flex布局 start
+
 [class*=flex-row],
 [class*=flex-col] {
     display: flex;
@@ -8,11 +9,13 @@
     // align-items 布局
     @each $key in flex-start, flex-end, center, baseline, stretch {
         // 交叉轴对齐方式单行文本
+
         &-items-#{$key} {
             align-items: #{$key};
         }
 
         // 单个属性对齐方式
+
         &-self-#{$key} {
             align-self: #{$key};
         }
@@ -30,6 +33,7 @@
         }
 
         // 多根交叉轴的对齐方式，一根轴线不起作用
+
         &-content-#{$key} {
             align-content: #{$key};
         }
