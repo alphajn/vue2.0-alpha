@@ -2,6 +2,7 @@ const chalk = require('chalk'); // eslint-disable-line
 
 const { VUE_APP_ENV, NODE_ENV } = process.env;
 
+// https://github.com/chimurai/http-proxy-middleware#proxycontext-config
 exports.proxy = {
     '/api': {
         target: 'http://localhost:3000', // 请求到 /api/users 现在会被代理到请求 http://localhost:3000/users

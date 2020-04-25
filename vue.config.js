@@ -12,7 +12,6 @@ module.exports = {
     devServer: {
         disableHostCheck: true,
         // proxy: 'http://localhost:8080'
-        // https://github.com/chimurai/http-proxy-middleware#proxycontext-config
         proxy,
     },
     css: {
