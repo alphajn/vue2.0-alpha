@@ -57,3 +57,100 @@
         text-align: #{$key};
     }
 }
+
+// text align
+@each $key in default, pointer, not-allowed {
+    .cursor-#{$key} {
+        cursor: #{$key};
+    }
+}
+
+@each $key in 1, 2, 3 {
+    .text-ellipsis-#{$key} {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+}
+
+.text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.f-link,
+a {
+    cursor: pointer;
+    display: inline-block;
+    color: #2b85e4;
+    line-height: 1;
+    transition: 0.3s;
+
+    &+& {
+        margin-left: 6px;
+    }
+
+    &:hover {
+        color: #2955c6;
+        user-select: none;
+    }
+
+    &.disabled {
+        color: #c5c8ce;
+        cursor: not-allowed;
+    }
+}
+
+// 常用间距
+@each $key in 0, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44 {
+    .mt#{$key} {
+        margin-top: #{$key}px;
+    }
+
+    .mr#{$key} {
+        margin-right: #{$key}px;
+    }
+
+    .mb#{$key} {
+        margin-bottom: #{$key}px;
+    }
+
+    .ml#{$key} {
+        margin-left: #{$key}px;
+    }
+
+    .pt#{$key} {
+        padding-top: #{$key}px;
+    }
+
+    .pr#{$key} {
+        padding-right: #{$key}px;
+    }
+
+    .pb#{$key} {
+        padding-bottom: #{$key}px;
+    }
+
+    .pl#{$key} {
+        padding-left: #{$key}px;
+    }
+
+    .fz#{$key} {
+        font-size: #{$key}px;
+    }
+
+    .lh#{$key} {
+        line-height: #{$key}px;
+    }
+}
