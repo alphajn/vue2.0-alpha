@@ -1,5 +1,4 @@
 // flex布局 start
-
 [class*=flex-row],
 [class*=flex-col] {
     display: flex;
@@ -37,12 +36,59 @@
     }
 
     @each $key in nowrap, wrap, wrap-reverse {
-        &-wrap-#{$key} {
+        &-#{$key} {
             flex-wrap: #{$key};
         }
     }
+
+    &-shink-0 {
+        flex-shrink: 0;
+    }
 }
-//  flex 布局 end
+// flex 布局 end
+
+// 常用间距
+@each $key in 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 30, 36, 40, 44, 60 {
+    .mt#{$key} {
+        margin-top: #{$key}px;
+    }
+
+    .mr#{$key} {
+        margin-right: #{$key}px;
+    }
+
+    .mb#{$key} {
+        margin-bottom: #{$key}px;
+    }
+
+    .ml#{$key} {
+        margin-left: #{$key}px;
+    }
+
+    .pt#{$key} {
+        padding-top: #{$key}px;
+    }
+
+    .pr#{$key} {
+        padding-right: #{$key}px;
+    }
+
+    .pb#{$key} {
+        padding-bottom: #{$key}px;
+    }
+
+    .pl#{$key} {
+        padding-left: #{$key}px;
+    }
+
+    .fz#{$key} {
+        font-size: #{$key}px;
+    }
+
+    .lh#{$key} {
+        line-height: #{$key}px;
+    }
+}
 
 // vertical align
 @each $key in top, middle, bottom {
@@ -56,4 +102,33 @@
     .text-align-#{$key} {
         text-align: #{$key};
     }
+}
+
+// text align
+@each $key in default, pointer, not-allowed {
+    .cursor-#{$key} {
+        cursor: #{$key};
+    }
+}
+
+// 超出多少行隐藏显示...
+@each $key in 1, 2, 3 {
+    .text-ellipsis-#{$key} {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: #{$key};
+        -webkit-box-orient: vertical;
+    }
+}
+
+// 超出隐藏...
+.text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.font-bold {
+    font-weight: bold;
 }

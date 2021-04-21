@@ -9,16 +9,27 @@
     "no-empty-source": true,
     "indentation": 4,
     "max-nesting-depth": 3,
-    "selector-pseudo-element-no-unknown": [true, {
-      "ignorePseudoElements": ["v-deep"]
-    }],
-    "selector-class-pattern": ["^([a-z]+(-[a-z0-9]+)*|el-(.+))$", {
-      "message": "Please name CSS classes like this: '.my-class-name'",
-      "severity": "error"
-    }],
-    "selector-id-pattern": ["^([a-z]+(-[a-z0-9]+)*|el-(.+))$", {
-      "message": "Please name CSS ID like this: '#my-id-name'",
-      "severity": "warning"
-    }]
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": [
+          "v-deep"
+        ]
+      }
+    ],
+    "selector-class-pattern": [
+      "^([a-z]+(-[a-z0-9]+)*|el-(.+))$",
+      {
+        "message": "Please name CSS classes like this: '.my-class-name'",
+        "severity": "error"
+      }
+    ],
+    "selector-id-pattern": [
+      "^([a-z]+(-[a-z0-9]+)*|el-(.+))$",
+      {
+        "message": "Please name CSS ID like this: '#my-id-name'",
+        "severity": "warning"
+      }
+    ]
   }
 }

@@ -1,4 +1,4 @@
-# vuecli 3.0
+# vue-alpha
 
 ## 安装
 
@@ -194,7 +194,7 @@ yarn stylelint --fix
 
 ``` js
 // 安装node包
-yarn add -D lint-staged validate-commit-msg
+yarn add -D  yorkie lint-staged validate-commit-msg
 
 git commit --no-verify // 绕过检查
 
@@ -258,4 +258,20 @@ exports.LogMessage = class {
         );
     }
 };
+```
+
+### 多语言-使用vue-18n
+
+[官方文档](https://kazupon.github.io/vue-i18n/zh/guide/formatting.html#%E5%85%B7%E5%90%8D%E6%A0%BC%E5%BC%8F)
+
+``` js
+// 安装
+yarn add vue-i18n
+
+// 使用
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
+
+Vue.use(VueI18n)
+
 ```

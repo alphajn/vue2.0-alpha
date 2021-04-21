@@ -19,10 +19,11 @@ module.exports = {
         'no-console': process.env.NODE_ENV === 'production' ? 0 : 1,
         'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
 
+        'consistent-return': 'off',
         // 4个空格缩进 强制switch的case字句缩进级别
-        "indent": [2, 4, { SwitchCase: 1 }],
+        indent: [2, 4, { SwitchCase: 1 }],
         // 允许for循环使用一元计算符 ++
-        'no-plusplus': [2, { "allowForLoopAfterthoughts": true }],
+        'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
         // 每行最大长度
         'max-len': [2, { code: 150 }],
         // 允许对参数函数赋值
@@ -40,13 +41,13 @@ module.exports = {
 
     overrides: [
         {
-        files: [
-            '**/__tests__/*.{j,t}s?(x)',
-            '**/tests/unit/**/*.spec.{j,t}s?(x)',
-        ],
-        env: {
-            jest: true,
-        },
+            files: [
+                '**/__tests__/*.{j,t}s?(x)',
+                '**/tests/unit/**/*.spec.{j,t}s?(x)',
+            ],
+            env: {
+                jest: true,
+            },
         },
     ],
 };
