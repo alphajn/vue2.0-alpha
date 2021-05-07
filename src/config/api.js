@@ -42,6 +42,7 @@ export const install = (Vue) => {
 
     // 开发环境打印请求接口
     if (process.env.NODE_ENV === 'development') {
+        // eslint-disable-next-line
         console.log('%c可用的 this.$api', 'background-color: #0bba96; color: #fff; padding: 2px 4px; border-radius: 4px;', Vue.prototype.$api);
     }
 };
