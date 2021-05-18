@@ -96,7 +96,7 @@ export const responseHandle = (response) => {
 
     // 如果代理有处理相应函数优先使用
     if (response.config.responseHandle) {
-        return response.config.responseHandle(data);
+        return response.config.responseHandle(data, response);
     }
 
     return data;
