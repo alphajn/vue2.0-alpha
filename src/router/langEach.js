@@ -6,6 +6,7 @@ import {
     supportLang,
     setAsyncLang,
     getLanguage,
+    replacePath,
 } from '@/lang/i18n';
 import { lang, langs } from '@/config/setup';
 
@@ -18,7 +19,7 @@ export default [
             const defaultLang = getLanguage();
 
             return next({
-                path: `/${defaultLang}/${path.replace(/^\/+/g, '')}`,
+                path: replacePath(path, defaultLang),
                 query,
                 hash,
                 replace: true,

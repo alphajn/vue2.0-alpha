@@ -25,7 +25,7 @@ i18n.langs = langs;
  * @param {string} lang 需要判断的语言
  * @returns {boolean} 支持返回true
  */
-const supportLang = (lang = '') => lang && langs.includes(lang.toLowerCase());
+const supportLang = (lang = '') => lang && langs.includes(lang);
 
 /**
  * 替换链接中的语言标识
@@ -58,7 +58,7 @@ const replacePath = (path = '', lang = i18n.locale) => {
     const paths = path.replace(/^[\\/]+/, '').split(/\/+/);
 
     // 如果一级是语言，则删除
-    if (supportLang(paths[0])) {
+    if (supportLang(paths[0].toLowerCase())) {
         paths.shift();
     }
 
