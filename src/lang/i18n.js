@@ -25,7 +25,7 @@ i18n.langs = langs;
  * @param {string} lang 需要判断的语言
  * @returns {boolean} 支持返回true
  */
-const supportLang = (lang = '') => lang && langs.includes(lang);
+const supportLang = (lang = '') => lang && langs.includes(lang.toLowerCase());
 
 /**
  * 替换链接中的语言标识
@@ -105,7 +105,7 @@ const getLanguage = () => {
  * @return {Promise}
  */
 const setAsyncLang = (lang = '') => {
-    lang = lang.toLocaleLowerCase();
+    lang = supportLang(lang) ? lang.toLowerCase() : defaultLang;
     i18n.locale = lang;
     localStorage.setItem(STORAGE_LANG, lang);
 

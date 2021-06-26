@@ -11,8 +11,7 @@ import { lang, langs } from '@/config/setup';
 
 export default [
     ({ path, query, hash }, from, next) => {
-        let pathLang = path.split('/')[1];
-        pathLang = pathLang ? pathLang.toLowerCase() : pathLang;
+        const pathLang = path.split('/')[1];
 
         // 如果连接中没有语言，则使用 browser > default
         if (!supportLang(pathLang) && langs.length > 1) {

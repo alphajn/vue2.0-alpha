@@ -5,7 +5,7 @@
 // 网站支持的语言
 export const langs = [
     'zh-cn',
-    'en-us',
+    // 'en-us',
 ];
 
 // 网站默认语言
